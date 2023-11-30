@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="RWS" basedir=".">
+	<property name="warfile" value="ROOT"/>
+	<property name="src" value="." />
+	<property name="build" value="bin" />
+	<property name="rwsdbpath" value="etc/database/hibernate" />
+	<property name="rcdbpath" value="../recallchek/etc/database/hibernate" />
+	
+	<!-- set global properties for this build -->
+	<target name="compile">
+		<!-- Compile the java code from ${src} into ${build} -->
+		<javac srcdir="${src}" destdir="${build}" />
+	</target>
+		
+	<target name="create">
+	    <delete file="ROOT.war"/>
+	    
+	    <jar destfile="lib/creditcardprocessing.jar" basedir="../creditcardprocessing/bin" update="true">
+		</jar>
+		<jar destfile="lib/common.jar" basedir="../common/bin" update="true">
+		</jar>
+		<jar destfile="lib/recallchek.jar" basedir="../recallchek/bin" update="true">
+		</jar>
+		
+		<war destfile="${warfile}.war" webxml="webcontent/ROOT/WEB-INF/web.xml" update="true">
+			
+		    <classes dir="../common/etc/"/>
+			<classes dir="bin"/>
+			<classes dir="etc/fonts"/>
+			<classes dir="etc/images/"/>
+			<classes dir="etc/templates/excel"/>
+			<classes dir="etc/config/servlets"/>
+			<classes dir="${rwsdbpath}"/>
+			<classes dir="etc/pdf"/>
+			<classes file="${rcdbpath}/hibernate.cfg.recalls.xml"/>
+			<classes file="${rcdbpath}/hibernate.cfg.bam.xml"/>
+			
+			<lib dir="lib">
+			    <exclude name="j2ee.jar"/>
+			</lib>
+			
+			<lib dir="../recallchek/lib">
+				<exclude name="j2ee.jar"/>
+				<exclude name="postgresql-42.2.1.jar"/>
+				<exclude name="testng-5.10-jdk15.jar"/>
+				<exclude name="p6spy.jar"/>
+				<exclude name="common.jar"/>
+				<exclude name="creditcardprocessing.jar"/>
+				<exclude name="primefaces-6.0.jar"/>
+			</lib>
+			<fileset dir="../common/servlets">
+				<exclude name="FrameTemplate.jsp"/>
+			</fileset>
+			<fileset dir="webcontent/ROOT">
+				<exclude name="servlets/ROOT/WEB-INF"/>
+			</fileset>
+		</war>
+		
+		<delete file="lib/recallchek.jar"/>
+		<delete file="lib/common.jar"/>
+		<delete file="lib/creditcardprocessing.jar"/>
+	</target>
+	<target name="copy">
+		<copy todir="/Applications/tomcat/webapps/rws" overwrite="true">
+			<fileset dir=".">
+				<include name="ROOT.war"/>
+			</fileset>
+		</copy>
+		<delete file="ROOT.war"/>
+	</target>
+	
+	<target name="deploy">
+		<antcall target="create"/>
+		<antcall target="copy"/>
+	</target>
+</project>
