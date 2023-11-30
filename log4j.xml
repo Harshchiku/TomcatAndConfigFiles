@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+    <appender name="FileAppender" class="org.apache.log4j.RollingFileAppender">
+        <param name="File" value="C:/tomcat/logs/residentialwarrantyservices.log"/>
+        <param name="maxBackupIndex" value="10"/>
+        <param name="maxFileSize" value="100000000"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{ISO8601} %-5p [%t] %c{1} - %m%n"/>
+        </layout>
+    </appender>
+
+    <appender name="ConsoleAppender" class="org.apache.log4j.ConsoleAppender">
+      <!--PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/-->
+      <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{ISO8601} %-5p [%t] %c{1} - %m%n"/>
+        </layout>
+    </appender>
+    
+    <logger name="org.apache.activemq">
+      <level value="error"/>
+    </logger>
+    <logger name="com.mchange">
+      <level value="error"/>
+    </logger>
+    <logger name="org.hibernate">
+      <level value="error"/>
+    </logger>
+    <logger name="com.gargoylesoftware.htmlunit">
+      <level value="error"/>
+    </logger>
+	<logger name="net.isg.data.recallchek.fuzzysearch">
+      <level value="info"/>
+    </logger>
+	<logger name="com.ocpsoft">
+		<level value="error"/>
+	</logger>
+	<logger name="com.amazonaws">
+		<level value="error"/>
+	</logger>
+	<logger name="org.apache.http">
+		<level value="error"/>
+	</logger>
+
+    <root>
+        <priority value="debug"/>
+        <appender-ref ref="ConsoleAppender"/>
+    </root>
+
+</log4j:configuration>

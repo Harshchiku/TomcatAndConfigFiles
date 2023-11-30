@@ -1,0 +1,199 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<!-- Postgress connection settings -->
+		<!--property name="connection.driver_class">com.p6spy.engine.spy.P6SpyDriver</property-->
+		<!--property name="connection.url">jdbc:p6spy:postgresql://db.recallchek.com/</property-->
+		<!--  property name="connection.driver_class">org.postgresql.Driver</property>
+		<property name="connection.url">jdbc:postgresql://qa.db.recallchek.com/recallsqa</property>
+		<property name="connection.username">postgres</property>
+		<property name="connection.password">JudpxEKqggKgcHnK</property-->
+		<property name="connection.url">jdbc:postgresql://qa.db.recallchek.com/recallsqa</property>
+		<property name="connection.username">postgres</property>
+		<property name="connection.password">JudpxEKqggKgcHnK</property>
+		<!-- Database connection settings -->
+		
+		<property name="jdbc.batch_size">1</property>
+
+		<!-- configuration pool via c3p0--> 
+<!-- 		<property name="c3p0.acquire_increment">1</property> 
+		<property name="c3p0.idle_test_period">100</property>  
+		<property name="c3p0.max_size">25</property> 
+		<property name="c3p0.max_statements">0</property> 
+		<property name="c3p0.min_size">0</property> 
+		<property name="c3p0.timeout">100</property> -->
+
+		<!-- SQL dialect -->
+		<property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+
+		<!-- Enable Hibernate's automatic session context management -->
+		<property name="current_session_context_class">thread</property>
+
+		<!-- Disable the second-level cache  -->
+		<property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+
+		<!-- Echo all executed SQL to stdout -->
+		<property name="show_sql">false</property>
+
+		<!-- Update DB schema on run -->
+		<!--property name="hbm2ddl.auto">update</property-->
+		
+		<mapping class="net.rws.common.data.FieldChangeEvent"/>
+		<mapping class="net.authorize.aim.AIMTransactionResponse"/>
+		<mapping class="net.isg.data.Appointment"/>
+		<mapping class="net.isg.data.AutoCompleteValue"/>
+		<mapping class="net.isg.data.EmailEvent"/>
+		<mapping class="net.isg.data.EmailEventClick"/>
+		<mapping class="net.isg.data.EmailEventLink"/>
+		<mapping class="net.isg.data.FieldChangeEvents"/>
+		<mapping class="net.isg.data.Inspector"/>
+		<mapping class="net.isg.data.MobileStats"/>
+		<mapping class="net.isg.data.Notes"/>
+		<mapping class="net.isg.data.NoSolicitation"/>
+		<mapping class="net.isg.data.RecurringBillingProfile"/>
+		<mapping class="net.isg.data.RecallsFTPFile"/>
+		<mapping class="net.isg.data.ResidentialProperty"/>
+		<mapping class="net.isg.data.Terms"/>
+		<mapping class="net.isg.data.Transaction"/>
+		<mapping class="net.isg.data.ScheduledPayment"/>
+		<mapping class="net.isg.data.Zipcode"/>
+		<mapping class="net.isg.data.agentmarketing.MetAnAgent"/>
+		<mapping class="net.isg.data.agentmarketing.PrintOrder"/>
+		<mapping class="net.isg.data.agentmarketing.SourcedAgent"/>
+		<mapping class="net.isg.data.alarmleads.AssignedNumber"/>
+		<mapping class="net.isg.data.alarmleads.CallLog"/>
+		<mapping class="net.isg.data.alarmleads.CampaignAssignment"/>
+		<mapping class="net.isg.data.alarmleads.EmailProposal"/>
+		<mapping class="net.isg.data.alarmleads.LeadCallEvent"/>
+		<mapping class="net.isg.data.alarmleads.LeadCallNotes"/>
+		<mapping class="net.isg.data.alarmleads.LeadProduct"/>
+		<mapping class="net.isg.data.alarmleads.LeadProductSale"/>
+		<mapping class="net.isg.data.alarmleads.LeadsProgram"/>
+		<mapping class="net.isg.data.alarmleads.LeadRecipient"/>
+		<mapping class="net.isg.data.alarmleads.LeadRecipientCampaign"/>
+		<mapping class="net.isg.data.alarmleads.SalesCommission"/>
+		<mapping class="net.isg.data.alarmleads.Tier"/>
+		<mapping class="net.isg.data.billing.BillingSettings"/>
+		<mapping class="net.isg.data.billing.Invoice"/>
+		<mapping class="net.isg.data.billing.InvoiceEntry"/>
+		<mapping class="net.isg.data.billing.IntegrationInvoice"/>
+		<mapping class="net.isg.data.billing.FranchiseInvoice"/>
+		<mapping class="net.isg.data.billing.LeadRecipientInvoice"/>
+		<mapping class="net.isg.data.billing.LeaseAgreement"/>
+		<mapping class="net.isg.data.billing.PaymentNotice"/>
+		<mapping class="net.isg.data.billing.PrePaidOrder"/>
+		<mapping class="net.isg.data.billing.TrialPeriod"/>
+		<mapping class="net.isg.data.billing.callcenter.CallCenterStats"/>
+		<mapping class="net.isg.data.billing.callcenter.CallCenterOrder"/>
+		<mapping class="net.isg.data.billing.callcenter.CallTracking"/>
+
+		<mapping class="net.isg.data.company.BillableGroup"/>
+		<mapping class="net.isg.data.company.CompanyLead"/>
+		<mapping class="net.isg.data.company.CompanyLogos"/>
+		<mapping class="net.isg.data.company.CompanyPreferences"/>
+		<mapping class="net.isg.data.company.HireApplication"/>
+		<mapping class="net.isg.data.company.FranchiseCommission"/>
+		<mapping class="net.isg.data.company.Franchisor"/>
+		<mapping class="net.isg.data.company.MetAnAgentConfig"/>
+		<mapping class="net.isg.data.company.MetAnAgentCustomContent"/>
+		<mapping class="net.isg.data.company.OneYearWarrantyPreferences"/>
+		<mapping class="net.isg.data.company.SatisfactionSurvey"/>
+		<mapping class="net.isg.data.company.SubAccount"/>
+		<mapping class="net.isg.data.company.SubAccountItem"/>
+		<mapping class="net.isg.data.company.SubmissionSettings"/>
+		<mapping class="net.isg.data.company.SubscriptionOption"/>
+		<mapping class="net.isg.data.company.SubscriptionService"/>
+		<mapping class="net.isg.data.company.contractors.ContractorReferral"/>
+		<mapping class="net.isg.data.company.contractors.ContractorReferralSettings"/>
+		
+		<mapping class="net.isg.data.contractors.Contractor"/>
+		<mapping class="net.isg.data.contractors.ContractorInvoice"/>
+		<mapping class="net.isg.data.contractors.ContractorServiceArea"/>
+		<mapping class="net.isg.data.contractors.ContractorSettings"/>
+		<mapping class="net.isg.data.contractors.QuoteRequest"/>
+		<mapping class="net.isg.data.contractors.QuoteRequestDescription"/>
+		<mapping class="net.isg.data.contractors.QuoteRequestSurvey"/>
+		<mapping class="net.isg.data.contractors.ServiceCategory"/>
+		<mapping class="net.isg.data.contractors.ServiceCategoryOutcome"/>
+		<mapping class="net.isg.data.contractors.Trade"/>
+		
+		<mapping class="net.isg.data.extendedservices.ExtendedService"/>
+		<mapping class="net.isg.data.extendedservices.ExtendedServiceAccount"/>
+		<mapping class="net.isg.data.extendedservices.FollowUpEmail"/>
+		<mapping class="net.isg.data.homeverified.HomeVerifiedProperty"/>
+		
+		<mapping class="net.isg.data.hor.CompanyQuestion"/>
+		<mapping class="net.isg.data.hor.HORQuestion"/>
+		<mapping class="net.isg.data.hor.Response"/>
+		<mapping class="net.isg.data.hor.RefundContract"/>
+		
+		<mapping class="net.isg.data.integration.recallchek.IntegrationAccount"/>
+		<mapping class="net.isg.data.mechanicalturk.ISGHIT"/>
+		<mapping class="net.isg.data.pdf.Logo"/>
+		<mapping class="net.isg.data.pdf.NewFlyerInfo"/>
+		<mapping class="net.isg.data.pdf.Text"/>
+		
+		<mapping class="net.isg.data.products.AgentMarketing"/>
+		<mapping class="net.isg.data.products.BuyBackGuarantee"/>
+		<mapping class="net.isg.data.products.Claim"/>
+		<mapping class="net.isg.data.products.ClaimableProduct"/>
+		<mapping class="net.isg.data.products.HomeOwnersResource"/>
+		<mapping class="net.isg.data.products.Lead"/>
+		<mapping class="net.isg.data.products.LimitedWarranty"/>
+		<mapping class="net.isg.data.products.MoldSafe"/>
+		<mapping class="net.isg.data.products.NXTStructuralWarranty"/>
+		<mapping class="net.isg.data.products.Product"/>
+		<mapping class="net.isg.data.products.RadonProtectionPlan"/>
+		<mapping class="net.isg.data.products.RecallChek"/>
+		<mapping class="net.isg.data.products.SewerGuard"/>
+		<mapping class="net.isg.data.products.SMART"/>
+		<mapping class="net.isg.data.products.RoofProtectionPlan"/>
+		<mapping class="net.isg.data.products.TermiteProtectionPlan"/>
+		<mapping class="net.isg.data.products.claims.ClaimContractor"/>
+		<mapping class="net.isg.data.products.claims.ClaimEstimate"/>
+		<mapping class="net.isg.data.products.claims.ClaimV2"/>
+		<mapping class="net.isg.data.products.claims.ClaimResponse"/>
+		<mapping class="net.isg.data.products.claims.ClaimSystem"/>
+		<mapping class="net.isg.data.recallchek.Agency"/>
+		<mapping class="net.isg.data.recallchek.Agent"/>
+		<mapping class="net.isg.data.recallchek.AgentContact"/>
+		<mapping class="net.isg.data.recallchek.RegisteredAgent"/>
+		<mapping class="net.isg.data.recallchek.Appliance"/>
+		<mapping class="net.isg.data.recallchek.ImageEntryLock"/>
+		<mapping class="net.isg.data.recallchek.ManagedRecall"/>
+		<mapping class="net.isg.data.recallchek.Recall"/>
+		<mapping class="net.isg.data.recallchek.RecallTrakAdd"/>
+		<mapping class="net.isg.data.recallchek.RecallTrakContent"/>
+		<mapping class="net.isg.data.recallchek.IdentifiedRecall"/>
+		<mapping class="net.isg.data.recallchek.RTClickThrough"/>
+		<mapping class="net.isg.data.recallchek.consumers.TempConsumerData"/>
+		<mapping class="net.isg.data.recallchek.search.CachedAppliance"/>
+		<mapping class="net.isg.data.recallchek.search.CachedSearchResult"/>
+		<mapping class="net.isg.data.termite.TermitePrice"/>
+		<mapping class="net.isg.data.termite.TermiteCustomer"/>
+		<mapping class="net.isg.data.warranty.WarrantyValidation"/>
+		<mapping class="net.isg.users.RolePreference"/>
+		<mapping class="net.isg.users.User"/>
+		<mapping class="net.isg.users.UserProfile"/>
+		<mapping class="net.isg.users.UserRole"/>
+		
+		<mapping class="net.rws.common.data.AreaCode"/>
+		<mapping class="net.rws.common.data.CloudVisionRequest"/>
+		<mapping class="net.rws.common.data.CustomerReview"/>
+		<mapping class="net.rws.common.data.EncryptedValue"/>
+		<mapping class="net.rws.common.data.HibernateString"/>
+		<mapping class="net.rws.common.data.LOBWrapper"/>
+		<mapping class="net.rws.common.data.ImageWrapper"/>
+		<mapping class="net.rws.common.data.LoginEvent"/>
+		<mapping class="net.rws.common.data.infusionsoft.ContactAction"/>
+		<mapping class="net.rws.common.data.report.ExcelSheet"/>
+		<mapping class="net.rws.common.data.report.ScheduledReport"/>
+		<mapping class="net.rws.common.data.SystemTransferUser"/>
+		<mapping class="net.rws.common.data.TriggerEvent"/>
+		
+	</session-factory>
+</hibernate-configuration>

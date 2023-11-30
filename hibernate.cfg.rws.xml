@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<!-- Postgress connection settings -->
+		<property name="connection.driver_class">org.postgresql.Driver</property>
+		<property name="connection.url">jdbc:postgresql://qa.db.recallchek.com/rwsqa</property>
+		<property name="connection.username">postgres</property>
+		<property name="connection.password">JudpxEKqggKgcHnK</property>
+		<!-- Database connection settings -->
+
+		<property name="jdbc.batch_size">1</property>
+
+		<!-- configuration pool via c3p0 -->
+		<property name="c3p0.acquire_increment">1</property>
+		<property name="c3p0.idle_test_period">100</property> <!-- seconds -->
+		<property name="c3p0.max_size">25</property>
+		<property name="c3p0.max_statements">0</property>
+		<property name="c3p0.min_size">0</property>
+		<property name="c3p0.timeout">100</property>
+
+		<!-- SQL dialect -->
+		<property name="dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+
+		<!-- Enable Hibernate's automatic session context management -->
+		<property name="current_session_context_class">thread</property>
+
+		<!-- Disable the second-level cache -->
+		<property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+
+		<!-- Echo all executed SQL to stdout -->
+		<property name="show_sql">false</property>
+
+		<!-- Update DB schema on run -->
+		<!--property name="hbm2ddl.auto">update</property -->
+
+		<mapping class="com.rws.data.ActivityEvent" />
+		<mapping class="com.rws.data.ActivityEventMapping" />
+		<mapping class="com.rws.data.AgentProfile" />
+		<mapping class="com.rws.data.DynamicPreference" />
+		<mapping class="com.rws.data.EmailEvent" />
+		<mapping class="com.rws.data.EmailEventLink" />
+		<mapping class="com.rws.data.EmailEventClick" />
+		<mapping class="com.rws.data.ESignature" />
+		<mapping class="com.rws.data.LoginFailure" />
+		<mapping class="com.rws.data.RWSFTPFile" />
+		<mapping class="com.rws.data.MetAnAgent" />
+		<mapping class="com.rws.data.Notes" />
+		<mapping class="com.rws.data.OrderFormDefaults" />
+		<mapping class="com.rws.data.RequestInfo" />
+		<mapping class="com.rws.data.SalesRepTerritory" />
+		<mapping class="com.rws.data.ServiceTechnician" />
+		<mapping class="com.rws.data.TitleCompany" />
+		<mapping class="com.rws.data.Transaction" />
+		<mapping class="com.rws.data.User" />
+		<mapping class="com.rws.data.applications.AdvantagePlan" />
+		<mapping class="com.rws.data.applications.SimpleWarranty" />
+		<mapping class="com.rws.data.applications.NxtStructural" />
+		<mapping class="com.rws.data.claim.Questionnaire" />
+		<mapping class="com.rws.data.claim.QuestionnaireAnswers" />
+		<mapping class="com.rws.data.claim.QuestionnaireNode" />
+		<mapping class="com.rws.data.policy.Claim" />
+		<mapping class="com.rws.data.policy.ClaimPayment" />
+		<mapping class="com.rws.data.policy.ClaimPaymentFile" />
+		<mapping class="com.rws.data.policy.ClaimSystem" />
+		<mapping class="com.rws.data.policy.Coverage" />
+		<mapping class="com.rws.data.policy.MiscPolicyFile" />
+		<mapping class="com.rws.data.policy.Policy" />
+		<mapping class="com.rws.data.policy.PolicyAgent" />
+		<mapping class="com.rws.data.policy.PolicyHolder" />
+		<mapping class="com.rws.data.policy.OrderedCoverage" />
+		<mapping class="com.rws.data.policy.RESPA" />
+
+		<mapping class="net.authorize.aim.AIMTransactionResponse" />
+
+		<mapping class="net.rws.common.data.AreaCode" />
+		<mapping class="net.rws.common.data.CustomerReview" />
+		<mapping class="net.rws.common.data.EncryptedValue" />
+		<mapping class="net.rws.common.data.FieldChangeEvent" />
+		<mapping class="net.rws.common.data.HibernateString" />
+		<mapping class="net.rws.common.data.LOBWrapper" />
+		<mapping class="net.rws.common.data.ImageWrapper" />
+		<mapping class="net.rws.common.data.LoginEvent" />
+		<mapping
+			class="net.rws.common.data.infusionsoft.ContactAction" />
+		<mapping class="net.rws.common.data.report.ExcelSheet" />
+		<mapping class="net.rws.common.data.report.ScheduledReport" />
+		<mapping class="net.rws.common.data.SystemTransferUser" />
+		<mapping class="net.rws.common.data.TriggerEvent" />
+
+	</session-factory>
+</hibernate-configuration>
